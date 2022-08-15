@@ -1,0 +1,24 @@
+a::before{
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: attr(data-text);
+  transition: .3s;
+}
+a:hover::before,
+a:focus::before{
+  color: red;
+  transform: translate(min(5px, .2vw), max(-5px, -.2vw));
+}
+a::after{
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: attr(data-text);
+  transition: .3s;
+}
+a:hover::after,
+a:focus::after{
+  color: aqua;
+  transform: translate(min(10px, .4vw), max(-10px, -.4vw));
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Validation Check</title>
+  <meta name="author" content="Sodiq Sanusi">
+  <meta name="description" content="Just a random playaround, maybe?">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <main class="box">
+    <form class="inputBox">
+      <input type="password" id="pswrd" placeholder="Password" autocomplete="on" onkeyup="check(this.value)">
+      <span id="toggleBtn"></span>
+    </form>
+    <aside class="validation">
+      <ul>
+        <li id="upper">At least one uppercase letter</li>
+        <li id="lower">At least one lowercase letter</li>
+        <li id="number">At least one number</li>
+        <li id="special">At least one special character</li>
+        <li id="length">At least 8 characters</li>
+      </ul>
+    </aside>
+  </main>
+
+  <script>
+    const passwordinput = document.getElementById('pswrd');
+    const toggleBtn = document.getElementById('toggleBtn')
+
+    const upper = document.getElementById('upper');
+    const lower = document.getElementById('lower');
+    const number = document.getElementById('number');
+    const special = document.getElementById('special');
+    const length = document.getElementById('length');
+    let uppertest = /(?=.*[A-Z])/g;
+    let lowertest = /(?=.*[a-z])/g;
+    let numbertest = /(?=.*[0-9])/g;
+    let specialtest = /(?=.*\W|_)/g;
+    let lengthtest = /(?=.{8,})/g;
+    
+    const check = (data) => {
+      upper.classList = `${uppertest.test(data)}`
+      lower.classList = `${lowertest.test(data)}`
+      number.classList = `${numbertest.test(data)}`
+      special.classList = `${specialtest.test(data)}`
+      length.classList = `${lengthtest.test(data)}`
+    }
+    
+    toggleBtn.addEventListener('click', () => {
+      if (passwordinput.type == 'password'){
+        passwordinput.setAttribute('type', 'text')
+        toggleBtn.classList.add('hide')
+      } else{
+        passwordinput.setAttribute('type', 'password')
+        toggleBtn.classList.remove('hide')
+      }
+    })
+  </script>
+</body>
+</html>

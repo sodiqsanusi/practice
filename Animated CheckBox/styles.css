@@ -1,0 +1,50 @@
+*{
+    border: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #113b47ad;
+    position: relative;    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main{
+    font-size: 3rem;     
+    margin: 25% auto;
+}
+main label:hover,
+main label:focus{
+    cursor: pointer;
+}
+input{
+    position: relative;
+    top: 5px;
+    width: 2rem;
+    height: 2rem;
+    appearance: none;
+    outline: none;
+    border: 2px solid black;
+    transition: .4s;
+}
+input:focus,input:hover{
+    cursor: pointer;
+    transform: scale(.9);
+}
+
+input:checked{
+    border-left: none;
+    border-top: none;
+    border-color: green;
+    margin-right: .5em;
+    transform: rotate(45deg);
+    top: 0;
+    width: 1rem;
+}
+
+
+
+/* JUST A SMALL PROJECT FOR ANIMATING CHECKBOXES */
